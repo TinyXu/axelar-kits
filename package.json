@@ -1,5 +1,5 @@
 {
-  "name": "cosmos-kit",
+  "name": "cosmos-kits",
   "version": "1.0.0",
   "description": "This is a axelar kit with cosmjs sdk",
   "main": "./index.js",
