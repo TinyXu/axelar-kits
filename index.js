@@ -1,7 +1,7 @@
 import {Cosmwalletkit,touCoin} from '@cosmcaptain/cosmjs-wallet-kit';
 
 async function queryBalance(mnemonic,pathId,rpc){
-  const cosmKit = new Cosmwalletkit(mnemonic,"axelar",rpc);
+  const cosmKit = new Cosmwalletkit(mnemonic,"cosmos",rpc);
   const wallet= await cosmKit.queryBalance(Array.of(pathId));
   console.log("address:",wallet[0].address);
   const coins=wallet[0].coins;
@@ -17,7 +17,7 @@ async function transfer(mnemonic,from,to,amount,customgas,rpc){
   if(balance.amount<(value+customgas)){
     throw new Error(`wallet balance[${balance.amount}] must great than amount[${value+customgas}] to send`)
   }
-  const cosmKit = new Cosmwalletkit(mnemonic,"axelar",rpc);
+  const cosmKit = new Cosmwalletkit(mnemonic,"cosmos",rpc);
   const result = await cosmKit.batchFaucet(from,Array.of(to),value,customgas);
   return result;
 }
